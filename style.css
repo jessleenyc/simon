@@ -1,0 +1,63 @@
+* {
+	border: 1px red solid;
+}
+.main-container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.simon {
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.game-container {
+	height: 404px;
+	width: 404px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.color {
+	width: 200px;
+	height: 200px;
+	float: left;
+}
+
+.button-container {
+	margin: 0 auto;
+	width: 250px;
+	height: 30px; 
+}
+
+.start-button {
+	width: 120px;
+	height: 30px;
+	margin: 0 auto;
+	float: left;
+}
+
+.score {
+	width: 250px;
+	height: 30px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 30px;
+}
+
+.stop-button {
+	width: 120px;
+	height: 30px;
+	margin: 0 auto;
+	float: right;
+}
+
+
+
+
+
+
+
+
