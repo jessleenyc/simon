@@ -68,13 +68,20 @@ var randomColor = function () {
 
 var elementClicked = function (event) { 
 	var element = event.target;	
-	if (event.target === red) {
-		attempt.push(red); //stores clicked element in attempt[]
-		console.log(attempt);
-	} 
+	console.log(red);
+	console.log(colors[0]);
+	if (event.target === colors[0]) {
+		attempt.push(colors[0]); //stores clicked element in attempt[]
+	} else if (event.target === colors[1]) {
+		attempt.push(colors[1]);
+	} else if (event.target === colors[2]) {
+		attempt.push(colors[2]);
+	} else if (event.target === colors[3]) {
+		attempt.push(colors[3]);
+	}
 };
 	//still need to check if target was a color. if so, identify color array index
-$(document).on('click', elementClicked);
+document.addEventListener('click', elementClicked);
 
 
 
