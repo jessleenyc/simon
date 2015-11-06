@@ -54,6 +54,28 @@
 	float: right;
 }
 
+#red {
+	background-color: red;
+}
+
+#blue {
+	background-color: blue;
+}
+
+#green {
+	background-color: green;
+}
+
+#yellow {
+	background-color: yellow;
+}
+
+.opacity {
+	opacity: 0;
+}
+
+
+
 
 
 

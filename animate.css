@@ -125,8 +125,8 @@ Copyright (c) 2015 Daniel Eden
   animation-name: flash;
 }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide 
-/*
+ originally authored by Nick Pettit - https://github.com/nickpettit/glide 
+
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -142,9 +142,9 @@ Copyright (c) 2015 Daniel Eden
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
-}*/
+}
 
-/*@keyframes pulse {
+@keyframes pulse {
   from {
     -webkit-transform: scale(1, 1, 1);
     transform: scale(1, 1, 1);
@@ -159,7 +159,7 @@ Copyright (c) 2015 Daniel Eden
     -webkit-transform: scale(1, 1, 1);
     transform: scale(1, 1, 1);
   }
-}*/
+}
 
 .pulse {
   -webkit-animation-name: pulse;
@@ -404,7 +404,7 @@ Copyright (c) 2015 Daniel Eden
   animation-name: tada;
 }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide 
 
 @-webkit-keyframes wobble {
   from {

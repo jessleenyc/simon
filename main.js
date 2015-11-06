@@ -12,106 +12,151 @@ var colors = [red, blue, green, yellow];
 
 var pattern = [];
 var attempt = [];
-var numRounds = [0];
+var numRounds = 0;
 
-// var randomColor = function () {
-// 	var random = Math.floor(Math.random() * colors.length);	
-// 	console.log(random);
-// 	if (random === 0) {
+var randomColor = function () {
+	var random = Math.floor(Math.random() * colors.length);	
+		if (random === 0) {
+			colors[0].classList.add('opacity');
+		} else if (random === 0) {
+			colors[1].classList.add('opactiy')
+		} else if (random === 2) {
+			colors[2].classList.add('opacity');
+		} else if (random === 3) {
+			colors[3].classList.add('opacity');
+		}
+	pattern.push(random); //stores random # into pattern sequence
+
+	setTimeout(function (event) {
+		if (colors[0].classList.contains('opacity')) {
+			colors[0].classList.remove('opacity')
+		} else if (colors[1].classList.contains('opacity')) {
+			colors[1].classList.remove('opacity')
+		} else if (colors[2].classList.contains('opacity')) {
+			colors[2].classList.remove('opacity')
+		} else if (colors[3].classList.contains('opacity')) {
+			colors[3].classList.remove('opacity');
+		}
+	}, 150);
+	numRounds++;
+	console.log(numRounds);
+};
+
+//first store user attempt
+var elementClicked = function (event) { 
+	var element = event.target;	
+	if (element === red) {
+		attempt.push(0); //stores user attempts in array
+	} else if (element === blue) {
+		attempt.push(1);
+	} else if (element === green) {
+		attempt.push(2);
+	} else if (element === yellow) {
+		attempt.push(3);
+	}
+	//see if attempts & patterns match (same length & indices). do nothing until the array lenghts match. and then check each index. or check each as they come in until it hits the lenght of the pattern
+};
+
+document.addEventListener('click', elementClicked);
+
+//push random color into end of pattern array. empty attempts array. 
+
+var checkMatch = function () {
+if (pattern.length = attempt.length) {
+	for (var i = 0; i < pattern.length; i++) {
+		for (var j=0; j < attempt.length; j++) {
+			if (i === j) {
+				console.log('pass to next round');
+			}
+			else {
+				console.log('failed to match lenght');
+			}
+		}
+	}
+}
+else {
+	console.log('wrong number of moves');
+}
+};
+
+
+
+
+
+// var patternGen = function (patternColor) {
+// 		if (patternColor === 0) {
+// 		console.log('red');
 // 		colors[0].style.background = 'red';
 // 		colors[0].classList.add('flash');
-// 	} else if (random === 1) {
+// 	} else if (patternColor === 1) {
+// 		console.log('red');
 // 		colors[1].style.background = 'blue';
 // 		colors[1].classList.add('flash');
-// 	} else if (random === 2) {
+// 	} else if (patternColor === 2) {
+// 		console.log('red');
 // 		colors[2].style.background = 'green';
 // 		colors[2].classList.add('flash');
-// 	} else if (random === 3) {
+// 	} else if (patternColor === 3) {
+// 		console.log('red');
 // 		colors[3].style.background = 'yellow';
 // 		colors[3].classList.add('flash');
 // 	}
-// 	pattern.push(random); //stores pattern sequence
 // };
 
-// randomColor();
+// pattern.forEach(patternGen); 
 
-// //first store user attempt
-// var elementClicked = function (event) { 
-// 	var element = event.target;	
-// 	if (element === red) {
-// 		attempt.push(0); //stores user attempts in array
-// 	} else if (element === blue) {
-// 		attempt.push(1);
-// 	} else if (element === green) {
-// 		attempt.push(2);
-// 	} else if (element === yellow) {
-// 		attempt.push(3);
+//stores pattern sequence as function. 
+// var patterns = pattern.map(function (patternColor, done) {
+// 		if (patternColor === 0) {
+// 			console.log('red');
+// 		colors[0].style.background = 'red';
+// 		colors[0].classList.add('flash');
+// 	} else if (patternColor === 1) {
+// 		console.log('blue');
+// 		colors[1].style.background = 'blue';
+// 		colors[1].classList.add('flash');
+// 	} else if (patternColor === 2) {
+// 		console.log('green');
+// 		colors[2].style.background = 'green';
+// 		colors[2].classList.add('flash');
+// 	} else if (patternColor === 3) {
+// 		console.log('yellow');
+// 		colors[3].style.background = 'yellow';
+// 		colors[3].classList.add('flash');
 // 	}
-// 	//see if attempts & patterns match (same length & indices). do nothing until the array lenghts match. and then check each index. or check each as they come in until it hits the lenght of the pattern
+// });
+
+// var runColor = function () {
+//   var nextColor = patterns.shift();
+//   nextColor(runNextColor);
 // };
 
-// if (pattern === attempt) { //how do you wait to execute this? create for loop that iterates through. //push random color into end of pattern array. empty attempts array. 
-// 	randomColor();
-// 	randomColor();
-// } else {
-// 	alert('you clicked the wrong button!');
+// var runNextColor = function() {
+//   if (patterns.length === 0) {
+//     return;
+//   }
+
+//   setTimeout(runColor, 2000);
 // }
-
-pattern = [0, 1, 2];
-
-var patternGen = function (patternColor) {
-		if (patternColor === 0) {
-		console.log('red');
-		colors[0].style.background = 'red';
-		colors[0].classList.add('flash');
-	} else if (patternColor === 1) {
-		console.log('red');
-		colors[1].style.background = 'blue';
-		colors[1].classList.add('flash');
-	} else if (patternColor === 2) {
-		console.log('red');
-		colors[2].style.background = 'green';
-		colors[2].classList.add('flash');
-	} else if (patternColor === 3) {
-		console.log('red');
-		colors[3].style.background = 'yellow';
-		colors[3].classList.add('flash');
-	}
-};
-
-pattern.forEach(patternGen); 
-
-//map each array so that it's a function and not number
-
-var patterns = pattern.map(function (patternColor) {
-		if (patternColor === 0) {
-		colors[0].style.background = 'red';
-		colors[0].classList.add('flash');
-	} else if (patternColor === 1) {
-		colors[1].style.background = 'blue';
-		colors[1].classList.add('flash');
-	} else if (patternColor === 2) {
-		colors[2].style.background = 'green';
-		colors[2].classList.add('flash');
-	} else if (patternColor === 3) {
-		colors[3].style.background = 'yellow';
-		colors[3].classList.add('flash');
-	}
-});
+// randomColor();
+// runNextColor();
+// randomColor();
 
 //to become:
 
-pattern = [patternGen[0], patternGen[2], patternGen[3]];
+// pattern = [patternGen[0], patternGen[2], patternGen[3]];
 
 
 
 //pattern[0](); 
 //check LOTR timers so each execute after another 
 
-// document.addEventListener('click', elementClicked);
+
 
 
 //modal used fixed div that appears, half opacity to dim background 
+
+//delayed animations in arrays i*300 setTime Out 
 
 
 
