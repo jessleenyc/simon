@@ -1,25 +1,27 @@
-//create random color function
-//if player selects same color:
-//run random color function twice.
-//keep counter on how many times player correctly chooses colors. this is the same # of times + 1 you need to run the color function after each round
-//if player selects wrong colors, end game notification
-//if player selects stop, end game notification.
 var red = document.querySelector('#red');
 var blue = document.querySelector('#blue');
 var green = document.querySelector('#green');
 var yellow = document.querySelector('#yellow');
 var colors = [red, blue, green, yellow];
+var start = document.querySelector('.start-button');
+var board = document.querySelector('.game-container');
+var end = document.querySelector('#overlay');
+var endMessage = document.querySelector('.num-rounds');
+var tryAgain = document.querySelector('.try-again');
+var score = document.querySelector('.score');
 
 var pattern = [];
 var attempt = [];
 var numRounds = 0;
+var clicks = 0;
+var counter = 0;
 
 var randomColor = function () {
 	var random = Math.floor(Math.random() * colors.length);	
 		if (random === 0) {
 			colors[0].classList.add('opacity');
-		} else if (random === 0) {
-			colors[1].classList.add('opactiy')
+		} else if (random === 1) {
+			colors[1].classList.add('opacity')
 		} else if (random === 2) {
 			colors[2].classList.add('opacity');
 		} else if (random === 3) {
@@ -39,122 +41,91 @@ var randomColor = function () {
 		}
 	}, 150);
 	numRounds++;
-	console.log(numRounds);
+	score.textContent = "ROUND: " + numRounds;
 };
 
-//first store user attempt
-var elementClicked = function (event) { 
-	var element = event.target;	
-	if (element === red) {
-		attempt.push(0); //stores user attempts in array
-	} else if (element === blue) {
-		attempt.push(1);
-	} else if (element === green) {
-		attempt.push(2);
-	} else if (element === yellow) {
-		attempt.push(3);
+var matchColor = function(pattern) {
+	if (pattern === 0) {
+		colors[0].classList.add('opacity');
+	} else if (pattern === 1) {
+		colors[1].classList.add('opacity')
+	} else if (pattern === 2) {
+		colors[2].classList.add('opacity');
+	} else if (pattern === 3) {
+		colors[3].classList.add('opacity');
 	}
-	//see if attempts & patterns match (same length & indices). do nothing until the array lenghts match. and then check each index. or check each as they come in until it hits the lenght of the pattern
-};
+	setTimeout(function (event) {
+		if (colors[0].classList.contains('opacity')) {
+			colors[0].classList.remove('opacity')
+		} else if (colors[1].classList.contains('opacity')) {
+			colors[1].classList.remove('opacity')
+		} else if (colors[2].classList.contains('opacity')) {
+			colors[2].classList.remove('opacity')
+		} else if (colors[3].classList.contains('opacity')) {
+			colors[3].classList.remove('opacity');
+		}
+	}, 150);	
+}
 
-document.addEventListener('click', elementClicked);
+//store user attempt
+	var elementClicked = function (event) { 
+		var element = event.target;	
+		if (element === red) {
+			attempt.push(0); 
+		} else if (element === blue) {
+			attempt.push(1);
+		} else if (element === green) {
+			attempt.push(2);
+		} else if (element === yellow) {
+			attempt.push(3);
+		}
+		clicks++;
+	};
 
-//push random color into end of pattern array. empty attempts array. 
-
-var checkMatch = function () {
-if (pattern.length = attempt.length) {
-	for (var i = 0; i < pattern.length; i++) {
-		for (var j=0; j < attempt.length; j++) {
-			if (i === j) {
-				console.log('pass to next round');
-			}
-			else {
-				console.log('failed to match lenght');
+//check if user matched computer pattern
+var numClicks = function () {
+	if (clicks === pattern.length) {
+		console.log('correct number of ' + clicks);
+		for (var i = 0; i < pattern.length; i++) {
+				if (pattern[i] === attempt[i]) {
+					counter++;	
+				}
+		}
+	var nextRound = function () {
+			if (counter === pattern.length) { //complete round, go to next round
+				console.log('pass to next round'); 
+					for (var i = 0; i < pattern.length; i++) {
+						setTimeout(matchColor(pattern[i]), i * 5000);
+					}	
+				randomColor();
+			} else { //fail round, end game
+				console.log('fail');
+				// endMessage.textContent = 'You got through ' + numRounds + ' round(s)	!';
+				// end.style.visibility = 'visible';	
 			}
 		}
+		nextRound();
 	}
-}
-else {
-	console.log('wrong number of moves');
-}
 };
 
-
-
-
-
-// var patternGen = function (patternColor) {
-// 		if (patternColor === 0) {
-// 		console.log('red');
-// 		colors[0].style.background = 'red';
-// 		colors[0].classList.add('flash');
-// 	} else if (patternColor === 1) {
-// 		console.log('red');
-// 		colors[1].style.background = 'blue';
-// 		colors[1].classList.add('flash');
-// 	} else if (patternColor === 2) {
-// 		console.log('red');
-// 		colors[2].style.background = 'green';
-// 		colors[2].classList.add('flash');
-// 	} else if (patternColor === 3) {
-// 		console.log('red');
-// 		colors[3].style.background = 'yellow';
-// 		colors[3].classList.add('flash');
-// 	}
-// };
-
-// pattern.forEach(patternGen); 
-
-//stores pattern sequence as function. 
-// var patterns = pattern.map(function (patternColor, done) {
-// 		if (patternColor === 0) {
-// 			console.log('red');
-// 		colors[0].style.background = 'red';
-// 		colors[0].classList.add('flash');
-// 	} else if (patternColor === 1) {
-// 		console.log('blue');
-// 		colors[1].style.background = 'blue';
-// 		colors[1].classList.add('flash');
-// 	} else if (patternColor === 2) {
-// 		console.log('green');
-// 		colors[2].style.background = 'green';
-// 		colors[2].classList.add('flash');
-// 	} else if (patternColor === 3) {
-// 		console.log('yellow');
-// 		colors[3].style.background = 'yellow';
-// 		colors[3].classList.add('flash');
-// 	}
-// });
-
-// var runColor = function () {
-//   var nextColor = patterns.shift();
-//   nextColor(runNextColor);
-// };
-
-// var runNextColor = function() {
-//   if (patterns.length === 0) {
-//     return;
-//   }
-
-//   setTimeout(runColor, 2000);
+// var homePage = function () {
+// 	end.style.visibility = 'hidden';
+// 	pattern = [];
+// 	attempt = [];
+// 	numRounds = 0;
+// 	clicks = 0;
+// 	counter = 0;
 // }
-// randomColor();
-// runNextColor();
-// randomColor();
 
-//to become:
 
-// pattern = [patternGen[0], patternGen[2], patternGen[3]];
 
+board.addEventListener('click', elementClicked);
+board.addEventListener('click', numClicks);
+start.addEventListener('click', randomColor);
+// tryAgain.addEventListener('click', homePage);
 
 
 //pattern[0](); 
-//check LOTR timers so each execute after another 
-
-
-
-
-//modal used fixed div that appears, half opacity to dim background 
 
 //delayed animations in arrays i*300 setTime Out 
 

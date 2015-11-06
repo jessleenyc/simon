@@ -1,5 +1,5 @@
 * {
-	border: 1px red solid;
+	border: 1px black solid;
 }
 .main-container {
 	width: 90%;
@@ -37,6 +37,8 @@
 	height: 30px;
 	margin: 0 auto;
 	float: left;
+	text-align: center;
+	line-height: 30px;
 }
 
 .score {
@@ -52,22 +54,28 @@
 	height: 30px;
 	margin: 0 auto;
 	float: right;
+	text-align: center;
+	line-height: 30px;
 }
 
 #red {
 	background-color: red;
+	border-top-left-radius: 100%;
 }
 
 #blue {
 	background-color: blue;
+	border-top-right-radius: 100%;
 }
 
 #green {
 	background-color: green;
+	border-bottom-left-radius: 100%;
 }
 
 #yellow {
 	background-color: yellow;
+	border-bottom-right-radius: 100%;
 }
 
 .opacity {
@@ -75,8 +83,41 @@
 }
 
 
+#overlay {
+     visibility: hidden;
+     position: absolute;
+     left: 0;
+     top: 0;
+     width:100%;
+     height:100%;
+     text-align:center;
+     z-index: 1000;
+     background-color: gray;
+     opacity: .9;
+}
 
+.finish {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: center;
+	font-size: 45px;
+	background-color: gray;
+}
 
+.try-again {
+	width: 120px;
+	height: 30px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 30px;
+	font-size: 25px;
+}
+
+.num-rounds {
+	font-size: 35px;
+}
 
 
 
