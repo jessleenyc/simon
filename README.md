@@ -12,9 +12,9 @@ Users/Players should be able to:
   - Quit current game 
 
 #Technologies Used
--JS
--HTML
--CSS
+  - JS
+  - HTML
+  - CSS
 
 
 
