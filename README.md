@@ -15,6 +15,7 @@ Users/Players should be able to:
   - JS
   - HTML
   - CSS
+  - animate.css library
 
 
 
