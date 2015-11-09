@@ -12,10 +12,10 @@ var home = document.querySelector('.home');
 var main = document.querySelector('.main-container');
 var stopButton = document.querySelector('.stop-button');
 
-var pattern = [];
-var attempt = [];
-var numRounds = 0;
-var clicks = 0;
+var pattern = []; //stores random generated pattern
+var attempt = []; //stores user attempts
+var numRounds = 0; //number of successful rounds
+var clicks = 0; //number of clicks 
 var counter = 0; //number of correct guesses
 var num = 0; //counter index for pattern array
 
@@ -86,7 +86,7 @@ var time = function () {
 	setTimeout(match, 500);
 }
 
-var stop = function () {
+var stop = function () { 
 	endMessage.textContent = 'You got through ' + numRounds + ' round(s)	!';
 	end.style.visibility = 'visible';		
 }
@@ -99,15 +99,18 @@ var numClicks = function () {
 					clicks = 0;
 				}
 		}
-
 		var confirm = function () {
-			if (counter === pattern.length) { //complete round, go to next round
+			if (counter === pattern.length) { //if all indices match, go to next round
+				glow();
+				setTimeout(removeGlow,150);
+				console.log('matches');
 				numRounds ++;
 				counter = 0; 
 				attempt = []; //clear attempts for next round
 				setTimeout(match, 500); //plays previous pattern
 				var wait = (numRounds + 1) * 500; //waits until pattern is over
 				setTimeout(randomColor, wait); //adds a new random color to pattern
+				num = 0; //resets pattern index to check at zero
 			} else { //fail round, end game
 					stop();
 				}
@@ -115,6 +118,20 @@ var numClicks = function () {
 			confirm();
 		};
 };
+
+var glow = function () {
+	red.classList.add('pulse');
+	blue.classList.add('pulse');
+	green.classList.add('pulse');
+	yellow.classList.add('pulse');
+}
+
+var removeGlow = function () {
+	red.classList.remove('pulse');
+	blue.classList.remove('pulse');
+	green.classList.remove('pulse');
+	yellow.classList.remove('pulse');
+}
 
 var homePage = function () {
 	end.style.visibility = 'hidden';

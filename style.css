@@ -1,5 +1,6 @@
 body {
 	font-family: 'Quantico', sans-serif;
+	background-image: url('http://i690.photobucket.com/albums/vv270/rissarue14/4759.png');
 }
 
 .home {
@@ -24,7 +25,9 @@ body {
 	margin: 0 auto;
 	margin-top: 20px;
 	text-align: center;
-	font-size: 50px;
+	font-size: 70px;
+	color: purple;
+	opacity: .7;
 }
 
 .game-container {
@@ -39,6 +42,7 @@ body {
 	width: 200px;
 	height: 200px;
 	float: left;
+	border: 1px dotted purple;
 }
 
 .button-container {
@@ -54,7 +58,9 @@ body {
 	float: left;
 	text-align: center;
 	line-height: 30px;
-	border: black solid 1px;
+	border: purple solid 1px;
+	color: purple;
+	background-color: white;
 }
 
 .score {
@@ -63,6 +69,10 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	line-height: 30px;
+	color: purple;
+	background-color: white;
+	margin-bottom: 5px;
+	border: 1px purple solid;
 }
 
 .stop-button {
@@ -72,26 +82,28 @@ body {
 	float: right;
 	text-align: center;
 	line-height: 30px;
-	border: black solid 1px;
+	border: purple solid 1px;
+	color: purple;
+	background-color: white;
 }
 
 #red {
-	background-color: red;
+	background-color: #FC1789;
 	border-top-left-radius: 100%;
 }
 
 #blue {
-	background-color: blue;
+	background-color: white;
 	border-top-right-radius: 100%;
 }
 
 #green {
-	background-color: green;
+	background-color: #17FC8A;
 	border-bottom-left-radius: 100%;
 }
 
 #yellow {
-	background-color: yellow;
+	background-color: #FCFC17;
 	border-bottom-right-radius: 100%;
 }
 
@@ -107,7 +119,7 @@ body {
      width:100%;
      height:100%;
      z-index: 1000;
-     background-color: gray;
+     background-color: purple;
      opacity: .9;
      color: white;
      margin: 0 auto;
