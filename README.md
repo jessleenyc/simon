@@ -17,6 +17,8 @@ Users/Players should be able to:
   - CSS
   - animate.css library
 
+#Wireframes
+![](./wireframe.jpg)
 
 
 
