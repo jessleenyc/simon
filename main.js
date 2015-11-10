@@ -9,7 +9,6 @@ var endMessage = document.querySelector('.num-rounds');
 var tryAgain = document.querySelector('.try-again');
 var score = document.querySelector('.score');
 var home = document.querySelector('.home');
-var main = document.querySelector('.main-container');
 var stopButton = document.querySelector('.stop');
 var nice = document.querySelector('.nice');
 
@@ -37,7 +36,7 @@ var randomColor = function () {
 	score.textContent = "ROUND: " + numRounds;
 };
 
-var removeColor = function (event) {
+var removeColor = function () {
 	if (red.classList.contains('opacity')) {
 			red.classList.remove('opacity');
 		} else if (blue.classList.contains('opacity')) {
@@ -86,12 +85,12 @@ var match = function () { //plays back previous pattern
 
 var time = function () {
 	setTimeout(match, 500);
-}
+};
 
 var stop = function () { 
 	endMessage.textContent = 'You got through ' + numRounds + ' round(s)	!';
 	end.style.visibility = 'visible';		
-}
+};
 //check if user matched computer pattern
 var numClicks = function () {
 	if (clicks === pattern.length) {
@@ -115,21 +114,21 @@ var numClicks = function () {
 			} else { //fail round, end game
 					stop();
 				}
-			}
+			};
 			confirm();
-		};
+		}
 };
 
 var addNice = function () {
 	nice.style.visibility = 'visible';
 	nice.classList.add('fadeInRightBig');
 	nice.classList.remove('fadeOutRightBig');
-}
+};
 
 var removeNice = function () {
 	nice.classList.remove('fadeInRightBig');
 	nice.style.visibility = 'hidden';
-}
+};
 
 var removeEnd = function () {
 	end.style.visibility = 'hidden';
@@ -151,12 +150,6 @@ start.addEventListener('click', randomColor);
 tryAgain.addEventListener('click', removeEnd);
 window.addEventListener('click', removeWelcome);
 stopButton.addEventListener('click', stop);
-
-
-
-
-
-
 
 
 
