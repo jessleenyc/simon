@@ -2,7 +2,7 @@ var red = document.querySelector('#red');
 var blue = document.querySelector('#blue');
 var green = document.querySelector('#green');
 var yellow = document.querySelector('#yellow');
-var start = document.querySelector('.start-button');
+var start = document.querySelector('.start');
 var board = document.querySelector('.game-container');
 var end = document.querySelector('.end');
 var endMessage = document.querySelector('.num-rounds');
@@ -10,7 +10,8 @@ var tryAgain = document.querySelector('.try-again');
 var score = document.querySelector('.score');
 var home = document.querySelector('.home');
 var main = document.querySelector('.main-container');
-var stopButton = document.querySelector('.stop-button');
+var stopButton = document.querySelector('.stop');
+var nice = document.querySelector('.nice');
 
 var pattern = []; //stores random generated pattern
 var attempt = []; //stores user attempts
@@ -20,6 +21,7 @@ var counter = 0; //number of correct guesses
 var num = 0; //counter index for pattern array
 
 var randomColor = function () {
+	removeNice();
   var random = Math.floor(Math.random() * 4);	
   if (random === 0) {
 	  red.classList.add('opacity');
@@ -101,8 +103,7 @@ var numClicks = function () {
 		}
 		var confirm = function () {
 			if (counter === pattern.length) { //if all indices match, go to next round
-				glow();
-				setTimeout(removeGlow,150);
+				addNice();
 				console.log('matches');
 				numRounds ++;
 				counter = 0; 
@@ -110,7 +111,7 @@ var numClicks = function () {
 				setTimeout(match, 500); //plays previous pattern
 				var wait = (numRounds + 1) * 500; //waits until pattern is over
 				setTimeout(randomColor, wait); //adds a new random color to pattern
-				num = 0; //resets pattern index to check at zero
+				num = 0; //resets pattern index to check at zero!!!
 			} else { //fail round, end game
 					stop();
 				}
@@ -119,21 +120,18 @@ var numClicks = function () {
 		};
 };
 
-var glow = function () {
-	red.classList.add('pulse');
-	blue.classList.add('pulse');
-	green.classList.add('pulse');
-	yellow.classList.add('pulse');
+var addNice = function () {
+	nice.style.visibility = 'visible';
+	nice.classList.add('fadeInRightBig');
+	nice.classList.remove('fadeOutRightBig');
 }
 
-var removeGlow = function () {
-	red.classList.remove('pulse');
-	blue.classList.remove('pulse');
-	green.classList.remove('pulse');
-	yellow.classList.remove('pulse');
+var removeNice = function () {
+	nice.classList.remove('fadeInRightBig');
+	nice.style.visibility = 'hidden';
 }
 
-var homePage = function () {
+var removeEnd = function () {
 	end.style.visibility = 'hidden';
 	pattern = [];
 	attempt = [];
@@ -150,7 +148,7 @@ var removeWelcome = function () {
 board.addEventListener('click', elementClicked);
 board.addEventListener('click', numClicks);
 start.addEventListener('click', randomColor);
-tryAgain.addEventListener('click', homePage);
+tryAgain.addEventListener('click', removeEnd);
 window.addEventListener('click', removeWelcome);
 stopButton.addEventListener('click', stop);
 
