@@ -1,15 +1,52 @@
-* {
-	border: 1px black solid;
+body {
+	font-family: 'Quantico', sans-serif;
+	text-align: center;
+	background-image: url('https://media.giphy.com/media/tTyTbFF9uEbPW/giphy.gif');
+	background-repeat: no-repeat;
 }
+
+.overlay {
+     position: absolute;
+     top:0;
+     bottom:0;
+     width:100%;
+     height:100%;
+     z-index: 5;
+     background-color: purple;
+     color: white;
+     margin: 0 auto;
+     opacity: .9;
+}
+
+.home {
+	visibility: visible;
+}
+
+.welcome {
+	font-size: 45px;
+	margin-top: 100px;
+}
+
+.instructions {
+	font-size: 25px;
+}
+
 .main-container {
-	width: 90%;
+	width: 100%;
+	height: 100%;
 	margin: 0 auto;
+	visibility: visible;
 }
 
 .simon {
 	margin: 0 auto;
 	margin-top: 20px;
-	text-align: center;
+	font-size: 80px;
+	color: purple;
+	opacity: .65;
+	letter-spacing: 30px;
+	position: relative;
+	left: 20px;
 }
 
 .game-container {
@@ -24,76 +61,66 @@
 	width: 200px;
 	height: 200px;
 	float: left;
+	border: 1px dotted purple;
 }
 
 .button-container {
 	margin: 0 auto;
 	width: 250px;
-	height: 30px; 
+	height: 30px;
 }
 
-.start-button {
+.button {
 	width: 120px;
-	height: 30px;
 	margin: 0 auto;
-	float: left;
-	text-align: center;
 	line-height: 30px;
+	border: purple solid 1px;
+	color: purple;
+	background-color: white;
+}
+
+.start {
+	float: left;
+}
+
+.stop {
+	float: right;
 }
 
 .score {
 	width: 250px;
 	height: 30px;
 	margin: 0 auto;
-	text-align: center;
 	line-height: 30px;
-}
-
-.stop-button {
-	width: 120px;
-	height: 30px;
-	margin: 0 auto;
-	float: right;
-	text-align: center;
-	line-height: 30px;
+	color: purple;
+	background-color: white;
+	margin-bottom: 5px;
+	border: 1px purple solid;
 }
 
 #red {
-	background-color: red;
+	background-color: #FC1789;
 	border-top-left-radius: 100%;
 }
 
 #blue {
-	background-color: blue;
+	background-color: white;
 	border-top-right-radius: 100%;
 }
 
 #green {
-	background-color: green;
+	background-color: #17FC8A;
 	border-bottom-left-radius: 100%;
 }
-
 #yellow {
-	background-color: yellow;
+	background-color: #FCFC17;
 	border-bottom-right-radius: 100%;
 }
-
 .opacity {
 	opacity: 0;
 }
-
-
-#overlay {
-     visibility: hidden;
-     position: absolute;
-     left: 0;
-     top: 0;
-     width:100%;
-     height:100%;
-     text-align:center;
-     z-index: 1000;
-     background-color: gray;
-     opacity: .9;
+.end {
+	visibility: hidden;
 }
 
 .finish {
@@ -101,26 +128,34 @@
 	height: 100%;
 	margin: 0 auto;
 	margin-top: 100px;
-	text-align: center;
 	font-size: 45px;
-	background-color: gray;
+	background-color: purple;
+	color: white;
 }
 
 .try-again {
 	width: 120px;
 	height: 30px;
 	margin: 0 auto;
-	text-align: center;
 	line-height: 30px;
 	font-size: 25px;
+	border: 1px solid white;
+	padding: 5px;
 }
 
 .num-rounds {
 	font-size: 35px;
 }
 
-
-
+.nice {
+	visibility: hidden;
+	position: relative;
+	left: 425px;
+	font-size: 50px;
+	bottom: 325px;
+	color: purple;
+	opacity: .65;
+}
 
 
 

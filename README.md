@@ -7,6 +7,18 @@ Users/Players should be able to:
   - Press a start button to begin the game
   - See color changes and have enough time to mimic the changes
   - See the score of how many rounds they have gone through successfully
-  - See or hear reaffirmation of successful round (Board lights up or Positive reoccuring sound that indicates next round is about to begin)
+  - See affirmation of successful round 
   - Realize they have made a mistake in their attempt to reproduce the order (game ends- user is notified by an error sound or window notification that states how many rounds they made through)
   - Quit current game 
+
+#Technologies Used
+  - JS
+  - HTML
+  - CSS
+  - animate.css library
+
+#Wireframes
+![](./wireframe.jpg)
+
+
+
