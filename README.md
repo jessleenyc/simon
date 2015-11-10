@@ -20,5 +20,8 @@ Users/Players should be able to:
 #Wireframes
 ![](./wireframe.jpg)
 
+#Start Playing!
+[http://jessleenyc.github.io/simon/](http://jessleenyc.github.io/simon/)
+
 
 
